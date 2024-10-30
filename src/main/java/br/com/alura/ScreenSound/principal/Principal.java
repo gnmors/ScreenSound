@@ -4,6 +4,7 @@ import br.com.alura.ScreenSound.model.Artista;
 import br.com.alura.ScreenSound.model.Musica;
 import br.com.alura.ScreenSound.model.TipoArtista;
 import br.com.alura.ScreenSound.repository.ArtistaRepository;
+import br.com.alura.ScreenSound.service.ConsultaChatGPT;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,6 +64,10 @@ public class Principal {
     }
 
     private void pesquisarDadosDoArtista() {
+        System.out.println("Pesquisar dados sobre qual artista? ");
+        var nome = leitura.nextLine();
+        var resposta = ConsultaChatGPT.obterInformação(nome);
+        System.out.println(resposta.trim());
     }
 
     private void buscarMusicasPorArtista() {
